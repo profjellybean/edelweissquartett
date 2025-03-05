@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Contact() {
     const [formData, setFormData] = useState({
         name: '',
-        subject: '',
+        email: '',
         message: '',
     });
 
@@ -28,30 +28,25 @@ export default function Contact() {
             });
 
             if (res.ok) {
-                alert('Message sent successfully!');
-                setFormData({ name: '', subject: '', message: '' });
-            } else {
-                const data = await res.json();
-                alert(`Error: ${data.message}`);
+                setFormData({ name: '', email: '', message: '' });
             }
         } catch (error) {
             console.error('Error sending email:', error);
-            alert('Error sending email');
         }
     };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6">
-            <h1 className="text-5xl font-bold flex-col mb-12">Contact</h1>
-
+            <h1 className="text-5xl font-bold flex-col mb-12">Kontakt</h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full">
                 <p className="text-lg mb-4 flex-1">
                     <a href="mailto:edelweissquartett@gmail.com" className="text-blue-600">edelweissquartett@gmail.com</a>
                 </p>
 
-                <form onSubmit={handleSubmit} className="p-6 rounded-xl shadow-lg w-lg bg-white flex-1">
-                    <h2 className="text-2xl font-bold text-center mb-6">Contact us!</h2>
+                <div className="hidden md:flex w-[1px] bg-black h-auto self-stretch"></div>
 
+                <form onSubmit={handleSubmit} className="p-6 rounded-xl shadow-lg bg-white flex-1 w-full sm:w-3/4 md:w-1/2 lg:w-lg">
+                    <h2 className="text-2xl font-bold text-center mb-6">Kontaktieren sie uns:</h2>
                     <div className="mb-4">
                         <label className="block mb-1 font-medium">Name</label>
                         <input
@@ -65,11 +60,11 @@ export default function Contact() {
                     </div>
 
                     <div className="mb-4">
-                        <label className="block mb-1 font-medium">Subject</label>
+                        <label className="block mb-1 font-medium">E-Mail oder Telefonnummer</label>
                         <input
                             type="text"
-                            name="subject"
-                            value={formData.subject}
+                            name="email"
+                            value={formData.email}
                             onChange={handleChange}
                             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                             required
@@ -77,7 +72,7 @@ export default function Contact() {
                     </div>
 
                     <div className="mb-4">
-                        <label className="block mb-1 font-medium">Message</label>
+                        <label className="block mb-1 font-medium">Nachricht</label>
                         <textarea
                             name="message"
                             value={formData.message}
