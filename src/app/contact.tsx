@@ -82,7 +82,7 @@ export default function Contact() {
             <h1 className="text-5xl font-bold flex-col mb-30">{t("contact.title")}</h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full">
                 <p className="text-lg mb-4 flex-1 p-6">
-                    <a href="mailto:edelweissquartett@gmail.com" className="text-blue-600">edelweissquartett@gmail.com</a>
+                    <a href="mailto:edelweissquartett@gmail.com" className="text-xl text-blue-600">edelweissquartett@gmail.com</a>
                 </p>
 
                 <div className="hidden md:flex w-[1px] bg-black h-auto self-stretch"></div>

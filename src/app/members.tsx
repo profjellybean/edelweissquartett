@@ -22,7 +22,7 @@ const Members: React.FC = () => {
   
   const teamMembers: TeamMember[] = [
     {
-      name: "Ana",
+      name: "Ana Labazan Brajša",
       role: {
         de: "1. Violine",
         en: "1st Violin"
@@ -34,7 +34,7 @@ const Members: React.FC = () => {
       image: "/ana.jpg"
     },
     {
-      name: "Bella",
+      name: "Bella Hoziasa",
       role: {
         de: "2. Violine",
         en: "2nd Violin"
@@ -54,19 +54,19 @@ const Members: React.FC = () => {
      image: "/bella.jpeg"
     },
     {
-      name: "Tin",
+      name: "Tin Reba",
       role: {
         de: "Viola",
         en: "Viola"
       },
       bio: {
-        de: "John Doe ist ein talentierter Singer-Songwriter und Multiinstrumentalist, bekannt für seine gefühlvollen Melodien und herzlichen Texte. Geboren und aufgewachsen in Nashville, Tennessee, entwickelte John schon früh eine Leidenschaft für Musik und beherrschte Gitarre und Klavier bereits als Teenager. Sein neuestes Album, Wanderer's Dream, zeigt seine sich entwickelnde Kunstfertigkeit und tiefgründiges lyrisches Geschichtenerzählen.",
-        en: "John Doe is a talented singer-songwriter and multi-instrumentalist known for his soulful melodies and heartfelt lyrics. Born and raised in Nashville, Tennessee, John developed a passion for music at an early age, mastering the guitar and piano by the time he was a teenager. His latest album, Wanderer's Dream, showcases his evolving artistry and deep lyrical storytelling."
+        en: "Tin Reba began playing the violin at the age of eight. He is currently pursuing his master's degree in viola at the University of Zagreb Academy of Music under Prof. Aleksandar Milošev, and is also studying on the Erasmus program with Milan Milojicic at the Joseph Haydn Privathochschule in Eisenstadt. As a member of chamber ensembles on both violin and viola, he has won several national competitions, including the prestigious 'Oscar of Knowledge' in Croatia. Outside the realm of classical music, he is involved in improvisation and jazz, with extensive experience in playing in bands.",
+        de: "Tin Reba begann im Alter von acht Jahren mit dem Geigenspiel. Derzeit absolviert er sein Masterstudium im Fach Viola an der Musikakademie der Universität Zagreb bei Prof. Aleksandar Milošev und studiert im Rahmen des Erasmus-Programms bei Milan Milojicic an der Joseph Haydn Privathochschule in Eisenstadt. Als Mitglied von Kammermusikensembles auf der Violine und der Bratsche hat er mehrere nationale Wettbewerbe gewonnen, darunter den renommierten 'Oscar des Wissens' in Kroatien. Außerhalb der klassischen Musik beschäftigt er sich mit Improvisation und Jazz und verfügt über umfangreiche Erfahrungen als Band Musiker."
       },
       image: "/tin.jpg"
     },
     {
-      name: "Valentin",
+      name: "Valentin Schnabl",
       role: {
         de: "Violoncello",
         en: "Cello"
@@ -114,7 +114,7 @@ const Members: React.FC = () => {
                 <h3 className="text-xl text-gray-600 mb-4">
                   {member.role[language]}
                 </h3>
-                <p className="text-gray-700 text-base">
+                <p className="text-xl text-gray-700 text-base">
                   {member.bio[language]}
                 </p>
               </div>
@@ -128,10 +128,10 @@ const Members: React.FC = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
                     {member.name}
                   </h2>
-                  <h3 className="text-xl text-gray-600 mb-4">
+                  <h3 className="text-xl text-gray-600 mb-4 font-bold">
                     {member.role[language]}
                   </h3>
-                  <p className="text-gray-700 text-base">
+                  <p className="text-xl ">
                     {member.bio[language]}
                   </p>
                 </div>
@@ -169,10 +169,10 @@ const Members: React.FC = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
                     {member.name}
                   </h2>
-                  <h3 className="text-xl text-gray-600 mb-4">
+                  <h3 className="text-xl text-gray-600 mb-4 font-bold">
                     {member.role[language]}
                   </h3>
-                  <p className="text-gray-700 text-base">
+                  <p className="text-xl">
                     {member.bio[language]}
                   </p>
                 </div>

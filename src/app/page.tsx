@@ -35,7 +35,16 @@ function HomeContent() {
   };
 
   return (
-      <div>
+      <div className="relative">
+        {/* Flower Background - Fixed position, low opacity for subtlety */}
+        <div
+            className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-10"
+            style={{
+              backgroundImage: 'url("/edelweiss.jpg")',
+            }}
+            aria-hidden="true"
+        ></div>
+
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
@@ -109,27 +118,30 @@ function HomeContent() {
           </div>
         </nav>
 
-        <div className="flex justify-center items-center min-h-screen" id='home'>
-          <div className="text-center">
-            <h1 className="text-7xl font-bold" id='home'>{t("home.title")}</h1>
-          </div>
-        </div>
-
-        <div className='flex justify-center items-center min-h-screen mt-20' id='quartett'>
-          <div className="flex flex-col items-center justify-center min-h-screen p-6">
-            <h1 className="text-5xl font-bold flex-col mb-12">{t("quartett.title")}</h1>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 lg:w-1/2">
-              {t("quartett.description")}
+        {/* Main content - higher z-index than background */}
+        <div className="relative z-10">
+          <div className="flex justify-center items-center min-h-screen" id='home'>
+            <div className="text-center">
+              <h1 className="text-7xl font-bold" id='home'>{t("home.title")}</h1>
             </div>
           </div>
-        </div>
 
-        <div className='flex justify-center items-center min-h-screen mt-20' id='members'>
-          <Members />
-        </div>
+          <div className='flex justify-center items-center min-h-screen mt-20' id='quartett'>
+            <div className="flex flex-col items-center justify-center min-h-screen p-6">
+              <h1 className="text-5xl font-bold flex-col mb-12">{t("quartett.title")}</h1>
+              <div className="text-xl flex flex-col md:flex-row items-center justify-center gap-6 lg:w-1/2">
+                {t("quartett.description")}
+              </div>
+            </div>
+          </div>
 
-        <div className='flex justify-center items-center min-h-screen mt-20' id='contact'>
-          <Contact />
+          <div className='flex justify-center items-center min-h-screen mt-20' id='members'>
+            <Members />
+          </div>
+
+          <div className='flex justify-center items-center min-h-screen mt-20' id='contact'>
+            <Contact />
+          </div>
         </div>
       </div>
   );
