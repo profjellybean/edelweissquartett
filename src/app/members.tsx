@@ -24,19 +24,19 @@ const Members: React.FC = () => {
     {
       name: "Ana",
       role: {
-        de: "1. Geige",
+        de: "1. Violine",
         en: "1st Violin"
       },
       bio: {
-        de: "John Doe ist ein talentierter Singer-Songwriter und Multiinstrumentalist, bekannt für seine gefühlvollen Melodien und herzlichen Texte. Geboren und aufgewachsen in Nashville, Tennessee, entwickelte John schon früh eine Leidenschaft für Musik und beherrschte Gitarre und Klavier bereits als Teenager. Sein neuestes Album, Wanderer's Dream, zeigt seine sich entwickelnde Kunstfertigkeit und tiefgründiges lyrisches Geschichtenerzählen.",
-        en: "John Doe is a talented singer-songwriter and multi-instrumentalist known for his soulful melodies and heartfelt lyrics. Born and raised in Nashville, Tennessee, John developed a passion for music at an early age, mastering the guitar and piano by the time he was a teenager. His latest album, Wanderer's Dream, showcases his evolving artistry and deep lyrical storytelling."
+        de: "Ana Labazan Brajša wurde in Zagreb, Kroatien, geboren, wo sie im Alter von vier Jahren mit dem Geigenspiel begann. Heute lebt sie in Wien und studiert bei den renommierten Geigern Anna Kandinskaya und Leonid Sorokow. Sie ist Preisträgerin zahlreicher nationaler und internationaler Wettbewerbe und trat in mehr als einem Dutzend Ländern auf, darunter Indien, China, Spanien und Deutschland. Neben ihrer aktiven Tätigkeit als Kammermusikerin beschäftigt sie sich auch mit Komposition. Ana ist Mitglied des Sinfonieorchesters Liechtenstein, der Österreichisch-Ungarischen Haydn-Philharmonie und des Kammerorchesters Split Virtuoso und trat als Solistin mit renommierten Ensembles auf. Sie wurde mehrfach vom kroatischen Kulturministerium für ihre Leistungen im musikalischen Bereich ausgezeichnet.",
+        en: "Ana Labazan Brajša was born in Zagreb, Croatia, where she began playing the violin at the age of four. Now based in Vienna, she studies with renowned violinists Anna Kandinskaya and Leonid Sorokow. She has won numerous awards in national and international competitions and has performed in over a dozen countries including India, China, Spain, Germany. In addition to her active engagement in chamber music, she also explores composition. Ana is a member of the Liechtenstein Symphony Orchestra, the Austrian-Hungarian Haydn Philharmonie, and the Chamber Orchestra Split Virtuoso, and has performed as a soloist with renowned ensembles. She was acknowledged several times by the Croatian Ministry of Culture for her accomplishments in the musical field."
       },
-      image: "/ana.jpeg"
+      image: "/ana.jpg"
     },
     {
       name: "Bella",
       role: {
-        de: "2. Geige",
+        de: "2. Violine",
         en: "2nd Violin"
       },
       bio: {
@@ -63,7 +63,7 @@ const Members: React.FC = () => {
         de: "John Doe ist ein talentierter Singer-Songwriter und Multiinstrumentalist, bekannt für seine gefühlvollen Melodien und herzlichen Texte. Geboren und aufgewachsen in Nashville, Tennessee, entwickelte John schon früh eine Leidenschaft für Musik und beherrschte Gitarre und Klavier bereits als Teenager. Sein neuestes Album, Wanderer's Dream, zeigt seine sich entwickelnde Kunstfertigkeit und tiefgründiges lyrisches Geschichtenerzählen.",
         en: "John Doe is a talented singer-songwriter and multi-instrumentalist known for his soulful melodies and heartfelt lyrics. Born and raised in Nashville, Tennessee, John developed a passion for music at an early age, mastering the guitar and piano by the time he was a teenager. His latest album, Wanderer's Dream, showcases his evolving artistry and deep lyrical storytelling."
       },
-      image: "/fill.JPG"
+      image: "/tin.jpg"
     },
     {
       name: "Valentin",
@@ -83,14 +83,14 @@ const Members: React.FC = () => {
             After spending a year in a dedicated piano trio, he rediscovered his passion for the cello and has been studying at the Joseph Haydn Private University \
       since 2024 in the class of Prof. Othmar Müller.",
       },
-      image: "/fill.JPG"
+      image: "/vali.jpg"
     }
   ];
   
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold flex-col mt-10 mb-10">{t("members.title")}</h1>
+        <h1 className="text-5xl font-bold flex-col mt-35 mb-15">{t("members.title")}</h1>
       </div>
       
       <div className="space-y-16">

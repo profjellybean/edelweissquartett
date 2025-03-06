@@ -79,7 +79,7 @@ export default function Contact() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6">
-            <h1 className="text-5xl font-bold flex-col mb-12">{t("contact.title")}</h1>
+            <h1 className="text-5xl font-bold flex-col mb-30">{t("contact.title")}</h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full">
                 <p className="text-lg mb-4 flex-1 p-6">
                     <a href="mailto:edelweissquartett@gmail.com" className="text-blue-600">edelweissquartett@gmail.com</a>
