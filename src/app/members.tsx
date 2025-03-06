@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface TeamMember {
   name: string;
@@ -13,32 +14,32 @@ const Members: React.FC = () => {
       name: "Ana",
       role: "1. Geige",
       bio: "Passionate tech leader with 15 years of experience in innovative software solutions.",
-      image: "/api/placeholder/400/400"
+      image: "/fill.JPG"
     },
     {
       name: "Bella",
       role: "2. Geige",
       bio: "Expert in cutting-edge technologies and scalable system architectures.",
-      image: "/api/placeholder/400/400"
+      image: "/fill.JPG"
     },
     {
       name: "Tin",
       role: "Viola",
       bio: "Award-winning designer focused on creating intuitive user experiences.",
-      image: "/api/placeholder/400/400"
+      image: "/fill.JPG"
     },
     {
       name: "Valentin",
       role: "Violoncello",
       bio: "Innovative developer with expertise in full-stack development and machine learning.",
-      image: "/api/placeholder/400/400"
+      image: "/fill.JPG"
     }
   ];
 
   return (
     <div className="w-full max-w-5xl">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold flex-col mb-12">Mitglieder</h1>
+        <h1 className="text-5xl font-bold flex-col mt-20 mb-30">Mitglieder</h1>
       </div>
 
       <div className="space-y-12">
@@ -62,20 +63,24 @@ const Members: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-1/2">
-                  <img 
+                <div className="w-1/3">
+                  <Image 
                     src={member.image} 
                     alt={member.name} 
+                    width={500}
+                    height={500}
                     className="w-full h-64 object-cover rounded-lg shadow-lg"
                   />
                 </div>
               </>
             ) : (
               <>
-                <div className="w-1/2">
-                  <img 
+                <div className="w-1/3">
+                  <Image 
                     src={member.image} 
                     alt={member.name} 
+                    width={500}
+                    height={500}
                     className="w-full h-64 object-cover rounded-lg shadow-lg"
                   />
                 </div>

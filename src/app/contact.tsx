@@ -7,6 +7,12 @@ export default function Contact() {
         email: '',
         message: '',
     });
+    const [submitStatus, setSubmitStatus] = useState({
+        success: false,
+        error: false,
+        message: '',
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
@@ -17,6 +23,12 @@ export default function Contact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus({
+            success: false,
+            error: false,
+            message: '',
+        });
 
         try {
             const res = await fetch('/api/sendEmail', {
@@ -29,9 +41,38 @@ export default function Contact() {
 
             if (res.ok) {
                 setFormData({ name: '', email: '', message: '' });
+                setSubmitStatus({
+                    success: true,
+                    error: false,
+                    message: 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.',
+                });
+            } else {
+                const errorData = await res.json();
+                setSubmitStatus({
+                    success: false,
+                    error: true,
+                    message: `Fehler beim Senden: ${errorData.error || 'Unbekannter Fehler'}`,
+                });
             }
         } catch (error) {
             console.error('Error sending email:', error);
+            setSubmitStatus({
+                success: false,
+                error: true,
+                message: 'Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut.',
+            });
+        } finally {
+            setIsSubmitting(false);
+            // Auto-hide success message after 5 seconds
+            if (submitStatus.success) {
+                setTimeout(() => {
+                    setSubmitStatus({
+                        success: false,
+                        error: false,
+                        message: '',
+                    });
+                }, 5000);
+            }
         }
     };
 
@@ -47,6 +88,21 @@ export default function Contact() {
 
                 <form onSubmit={handleSubmit} className="p-6 rounded-xl shadow-lg bg-white flex-1 w-full sm:w-3/4 md:w-1/2 lg:w-lg">
                     <h2 className="text-2xl font-bold text-center mb-6">Kontaktieren sie uns:</h2>
+                    
+                    {/* Success Message */}
+                    {submitStatus.success && (
+                        <div className="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+                            {submitStatus.message}
+                        </div>
+                    )}
+                    
+                    {/* Error Message */}
+                    {submitStatus.error && (
+                        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                            {submitStatus.message}
+                        </div>
+                    )}
+                    
                     <div className="mb-4">
                         <label className="block mb-1 font-medium">Name</label>
                         <input
@@ -85,8 +141,14 @@ export default function Contact() {
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-all duration-300">
-                        Send Message
+                        disabled={isSubmitting}
+                        className={`w-full py-3 rounded-lg transition-all duration-300 ${
+                            isSubmitting 
+                                ? 'bg-blue-400 cursor-not-allowed' 
+                                : 'bg-blue-600 hover:bg-blue-700'
+                        } text-white`}
+                    >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
                 </form>
             </div>
