@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
+import { useLanguage } from './languageContext';
 
 export default function Contact() {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -44,14 +46,13 @@ export default function Contact() {
                 setSubmitStatus({
                     success: true,
                     error: false,
-                    message: 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.',
+                    message: t("contact.form.success"),
                 });
             } else {
-                const errorData = await res.json();
                 setSubmitStatus({
                     success: false,
                     error: true,
-                    message: `Fehler beim Senden: ${errorData.error || 'Unbekannter Fehler'}`,
+                    message: t("contact.form.error"),
                 });
             }
         } catch (error) {
@@ -59,7 +60,7 @@ export default function Contact() {
             setSubmitStatus({
                 success: false,
                 error: true,
-                message: 'Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut.',
+                message: t("contact.form.error"),
             });
         } finally {
             setIsSubmitting(false);
@@ -78,16 +79,17 @@ export default function Contact() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6">
-            <h1 className="text-5xl font-bold flex-col mb-12">Kontakt</h1>
+            <h1 className="text-5xl font-bold flex-col mb-12">{t("contact.title")}</h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full">
                 <p className="text-lg mb-4 flex-1 p-6">
                     <a href="mailto:edelweissquartett@gmail.com" className="text-blue-600">edelweissquartett@gmail.com</a>
                 </p>
 
                 <div className="hidden md:flex w-[1px] bg-black h-auto self-stretch"></div>
+                <div className="lg:hidden md:hidden">{t("or")}</div>
 
                 <form onSubmit={handleSubmit} className="p-6 rounded-xl shadow-lg bg-white flex-1 w-full sm:w-3/4 md:w-1/2 lg:w-lg">
-                    <h2 className="text-2xl font-bold text-center mb-6">Kontaktieren sie uns:</h2>
+                    <h2 className="text-2xl font-bold text-center mb-6">{t("contact.form.header")}</h2>
                     
                     {/* Success Message */}
                     {submitStatus.success && (
@@ -116,7 +118,9 @@ export default function Contact() {
                     </div>
 
                     <div className="mb-4">
-                        <label className="block mb-1 font-medium">E-Mail oder Telefonnummer</label>
+                        <label className="block mb-1 font-medium">
+                            {t("contact.form.email")}
+                        </label>
                         <input
                             type="text"
                             name="email"
@@ -128,7 +132,9 @@ export default function Contact() {
                     </div>
 
                     <div className="mb-4">
-                        <label className="block mb-1 font-medium">Nachricht</label>
+                        <label className="block mb-1 font-medium">
+                            {t("contact.form.message")}
+                        </label>
                         <textarea
                             name="message"
                             value={formData.message}
@@ -148,7 +154,7 @@ export default function Contact() {
                                 : 'bg-blue-600 hover:bg-blue-700'
                         } text-white`}
                     >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                        {isSubmitting ? t("contact.form.sending") : t("contact.form.submit")}
                     </button>
                 </form>
             </div>
