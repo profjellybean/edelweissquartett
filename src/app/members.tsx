@@ -28,8 +28,8 @@ const Members: React.FC = () => {
         en: "1st Violin"
       },
       bio: {
-        de: "Ana Labazan Brajša wurde in Zagreb, Kroatien, geboren, wo sie im Alter von vier Jahren mit dem Geigenspiel begann. Heute lebt sie in Wien und studiert bei den renommierten Geigern Anna Kandinskaya und Leonid Sorokow. Sie ist Preisträgerin zahlreicher nationaler und internationaler Wettbewerbe und trat in mehr als einem Dutzend Ländern auf, darunter Indien, China, Spanien und Deutschland. Neben ihrer aktiven Tätigkeit als Kammermusikerin beschäftigt sie sich auch mit Komposition. Ana ist Mitglied des Sinfonieorchesters Liechtenstein, der Österreichisch-Ungarischen Haydn-Philharmonie und des Kammerorchesters Split Virtuoso und trat als Solistin mit renommierten Ensembles auf. Sie wurde mehrfach vom kroatischen Kulturministerium für ihre Leistungen im musikalischen Bereich ausgezeichnet.",
-        en: "Ana Labazan Brajša was born in Zagreb, Croatia, where she began playing the violin at the age of four. Now based in Vienna, she studies with renowned violinists Anna Kandinskaya and Leonid Sorokow. She has won numerous awards in national and international competitions and has performed in over a dozen countries including India, China, Spain, Germany. In addition to her active engagement in chamber music, she also explores composition. Ana is a member of the Liechtenstein Symphony Orchestra, the Austrian-Hungarian Haydn Philharmonie, and the Chamber Orchestra Split Virtuoso, and has performed as a soloist with renowned ensembles. She was acknowledged several times by the Croatian Ministry of Culture for her accomplishments in the musical field."
+        de: "Ana Labazan Brajša wurde in Zagreb, Kroatien, geboren, wo sie im Alter von vier Jahren mit dem Geigenspiel begann. Heute lebt sie in Wien und studiert bei den renommierten Geigern Anna Kandinskaya und Leonid Sorokow. Sie ist Preisträgerin zahlreicher nationaler und internationaler Wettbewerbe und konzertierte bereits in über einem Dutzend Ländern, darunter Indien, China, Spanien und Deutschland. Neben ihrer aktiven Tätigkeit als Kammermusikerin beschäftigt sie sich auch mit Komposition. Ana ist Mitglied des Sinfonieorchesters Liechtenstein, der Österreichisch-Ungarischen Haydn Philharmonie und des Kammerorchesters Split Virtuoso und trat als Solistin mit renommierten Orchestern auf. Sie wurde mehrfach vom kroatischen Kulturministerium für ihre Leistungen im musikalischen Bereich ausgezeichnet.",
+        en: "Ana Labazan Brajša was born in Zagreb, Croatia, where she began playing the violin at the age of four. Now based in Vienna, she studies with renowned violinists Anna Kandinskaya and Leonid Sorokow. She has won numerous awards in national and international competitions and has performed in over a dozen countries including India, China, Spain and Germany. In addition to her active engagement in chamber music, she also explores composition. Ana is a member of the Liechtenstein Symphony Orchestra, the Austrian-Hungarian Haydn Philharmonie, and the Chamber Orchestra Split Virtuoso and has performed as a soloist with renowned orchestras. She was acknowledged several times by the Croatian Ministry of Culture for her accomplishments in the musical field."
       },
       image: "/ana.jpg"
     },
@@ -42,7 +42,7 @@ const Members: React.FC = () => {
       bio: {
         de: "Bella Hoziasa wurde in Riga, Lettland, geboren und begann ihre musikalische Reise im Alter von fünf Jahren, als sie mit dem Violinspiel begann. \
             Im Jahr 2024 absolvierte sie die Emīls-Dārziņš-Musikschule, wo sie unter der Anleitung von Nelli Sarkisyan studierte. \
-            Im Herbst 2024 begann sie ihr Studium an der Joseph-Haydn-Privathochschule in der Klasse von Anna Kandinskaya. \
+            Im Herbst 2024 begann sie ihr Studium an der Joseph Haydn Privathochschule in der Klasse von Anna Kandinskaya. \
             Im Laufe ihrer Karriere nahm Bella an verschiedenen internationalen Orchester- und Kammermusikprojekten teil und sammelte dabei wertvolle Erfahrungen. \
             Sie ist zudem aktiv am musikalischen Studentenleben beteiligt, strebt kontinuierlich nach Weiterentwicklung und sucht stets neue Möglichkeiten auf ihrem künstlerischen Weg.",
         en: "Bella Hoziasa was born in Riga, Latvia, and began her musical journey at the age of five when she started playing the violin. \
@@ -75,7 +75,7 @@ const Members: React.FC = () => {
         de: "Valentin Schnabl begann im Alter von vier Jahren mit dem Cellospiel und erhielt Unterricht bei Maria Grün und später bei Andrea Traxler an der Johann-Sebastian-Bach-Musikschule. \
             Er gewann mehrfach Preise beim Prima la Musica-Wettbewerb. \
             Neben seiner musikalischen Laufbahn absolvierte er einen Bachelor in Informatik und verfolgt derzeit sein Masterstudium. \
-            Nach einem Jahr in einem festen Klaviertrio entdeckte er seine Leidenschaft für das Cello neu und studiert seit 2024 an der Joseph-Haydn-Privatuniversität \
+            Nach einem Jahr in einem festen Klaviertrio entdeckte er seine Leidenschaft für das Cello neu und studiert seit 2024 an der Joseph Haydn Privathochschule \
             in der Klasse von Prof. Othmar Müller.",
         en: "Valentin Schnabl started playing the cello at the age of four, receiving lessons from Maria Grün and later Andrea Traxler at the Johann Sebastian Bach Music School. \
             He won multiple prizes at the Prima la Musica competition.\

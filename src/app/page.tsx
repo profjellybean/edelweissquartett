@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Contact from './contact';
 import Members from './members';
 import { LanguageProvider, useLanguage, LanguageToggle } from './languageContext';
+import Head from 'next/head';
 
 // Wrap the main content with language context
 function HomeContent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // Add scroll event listener to detect when user scrolls
   useEffect(() => {
@@ -34,8 +35,49 @@ function HomeContent() {
     setIsMenuOpen(false);
   };
 
+  // SEO data based on current language
+  const pageTitle = t("home.title");
+  const pageDescription = t("quartett.description").slice(0, 160); // Truncate to reasonable meta description length
+  const siteUrl = "https://edelweissquartett.at";
+  const currentUrl = `${siteUrl}/${language === "en" ? "" : language}`;
+
   return (
       <div className="relative">
+        <Head>
+          {/* Essential Meta Tags */}
+          <title>{pageTitle}</title>
+          <meta name="description" content={pageDescription} />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="canonical" href={currentUrl} />
+          
+          {/* Favicon */}
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          
+          {/* Language Alternates for SEO */}
+          <link rel="alternate" hrefLang="en" href={`${siteUrl}`} />
+          <link rel="alternate" hrefLang="de" href={`${siteUrl}/de`} />
+          
+          {/* Structured Data / JSON-LD for Music Group */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "MusicGroup",
+                "name": pageTitle,
+                "description": pageDescription,
+                "url": currentUrl,
+                "sameAs": [
+                  "https://www.instagram.com/yourquartet"
+                ]
+              })
+            }}
+          />
+        </Head>
         {/* Flower Background - Fixed position, low opacity for subtlety */}
         <div
             className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-10"
@@ -49,6 +91,7 @@ function HomeContent() {
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
         />
+        {/* Rest of your component code remains unchanged */}
         {/* Fixed navigation bar that appears when scrolling */}
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
           <div className="container mx-auto px-4 relative">
