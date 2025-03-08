@@ -40,7 +40,7 @@ const translations = {
     "nav.contact": "Contact",
     "home.title": "Edelweiss Quartet",
     "quartett.title": "The Quartet",
-    "quartett.description": "Founded in 2024, our quartet brings together four talented musicians with a shared passion for chamber music. United by our studies at the Joseph Haydn University, we blend our diverse musical experiences into a dynamic and expressive ensemble. We perform not only all styles of classical music but also a broad range of other genres, including pop, rock and jazz.  Constantly evolving, we seek to inspire audiences through our passionate and innovative approach to music. \n We offer a versatile repertoire—whether you're looking for an elegant classical program, a dynamic crossover performance or something uniquely tailored to your event, we deliver quality and professionalism on every stage. We create unforgettable musical experiences for concerts, private events, and special occasions. Book us to add sophistication, freshness and excitement to your next event!",
+    "quartett.description": "Founded in 2024, our quartet brings together four talented musicians with a shared passion for chamber music. United by our studies at the Joseph Haydn Private University, we blend our diverse musical experiences into a dynamic and expressive ensemble. We perform not only all styles of classical music but also a broad range of other genres, including pop, rock and jazz.  Constantly evolving, we seek to inspire audiences through our passionate and innovative approach to music. \n We offer a versatile repertoire—whether you're looking for an elegant classical program, a dynamic crossover performance or something uniquely tailored to your event, we deliver quality and professionalism on every stage. We create unforgettable musical experiences for concerts, private events, and special occasions. Book us to add sophistication, freshness and excitement to your next event!",
     "members.title": "Members",
     "contact.title": "Contact",
     "contact.form.name": "Name",
@@ -102,7 +102,8 @@ export const LanguageToggle: React.FC = () => {
     return (
         <button
           onClick={toggleLanguage}
-          className="flex items-center justify-center transition-all hover:bg-gray-100 "
+          type='button'
+          className="rounded-lg hover:cursor-pointer opacity-50 hover:opacity-100 flex items-center justify-center transition-all hover:bg-gray-100 "
           aria-label={language === "de" ? "Switch to English" : "Auf Deutsch umschalten"}
         >
           <span className={`fi fi-${language === 'de' ? 'gb' : 'de'}`}></span>

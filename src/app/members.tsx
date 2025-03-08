@@ -60,8 +60,8 @@ const Members: React.FC = () => {
         en: "Viola"
       },
       bio: {
-        en: "Tin Reba began playing the violin at the age of eight. He is currently pursuing his master's degree in viola at the University of Zagreb Academy of Music under Prof. Aleksandar Milošev, and is also studying on the Erasmus program with Milan Milojicic at the Joseph Haydn Privathochschule in Eisenstadt. As a member of chamber ensembles on both violin and viola, he has won several national competitions, including the prestigious 'Oscar of Knowledge' in Croatia. Outside the realm of classical music, he is involved in improvisation and jazz, with extensive experience in playing in bands.",
-        de: "Tin Reba begann im Alter von acht Jahren mit dem Geigenspiel. Derzeit absolviert er sein Masterstudium im Fach Viola an der Musikakademie der Universität Zagreb bei Prof. Aleksandar Milošev und studiert im Rahmen des Erasmus-Programms bei Milan Milojicic an der Joseph Haydn Privathochschule in Eisenstadt. Als Mitglied von Kammermusikensembles auf der Violine und der Bratsche hat er mehrere nationale Wettbewerbe gewonnen, darunter den renommierten 'Oscar des Wissens' in Kroatien. Außerhalb der klassischen Musik beschäftigt er sich mit Improvisation und Jazz und verfügt über umfangreiche Erfahrungen als Band Musiker."
+        en: "Tin Reba, born in Osijek, Croatia, started playing the violin at the age of eight and later switched to the viola during his studies at the Music Academy of the University of Zagreb, where he is currently completing his master's degree under Prof. Aleksandar Milošev. He is also studying under Milan Milojicic at the Joseph Haydn Private Academy in Eisenstadt as part of the Erasmus program. As a member of chamber music ensembles on both violin and viola, he has won several national competitions, including the prestigious 'Oscar of Knowledge' award in Croatia. Outside of classical music, he is involved in improvisation and jazz and has extensive experience as a band musician.",
+        de: "Tin Reba, geboren in Osijek, Kroatien, begann im Alter von acht Jahren mit dem Geigenspiel und wechselte später während seines Studiums an der Musikakademie der Universität Zagreb zur Bratsche, wo er derzeit sein Masterstudium bei Prof. Aleksandar Milošev absolviert. Außerdem studiert er bei Milan Milojicic an der Joseph Haydn Privatakademie in Eisenstadt im Rahmen des Erasmus-Programms. Als Mitglied von Kammermusikensembles auf der Violine und der Bratsche hat er mehrere nationale Wettbewerbe gewonnen, darunter den renommierten 'Oscar des Wissens' in Kroatien. Außerhalb der klassischen Musik beschäftigt er sich mit Improvisation und Jazz und hat umfangreiche Erfahrung als Bandmusiker."
       },
       image: "/tin.jpg"
     },
@@ -72,12 +72,12 @@ const Members: React.FC = () => {
         en: "Cello"
       },
       bio: {
-        de: "Valentin Schnabl begann im Alter von vier Jahren mit dem Cellospiel und erhielt Unterricht bei Maria Grün und später bei Andrea Traxler an der Johann-Sebastian-Bach-Musikschule. \
+        de: "Valentin Schnabl begann im Alter von vier Jahren mit dem Cellospiel und erhielt Unterricht bei Maria Grün und später bei Andrea Traxler an der Johann-Sebastian-Bach-Musikschule in Wien. \
             Er gewann mehrfach Preise beim Prima la Musica-Wettbewerb. \
             Neben seiner musikalischen Laufbahn absolvierte er einen Bachelor in Informatik und verfolgt derzeit sein Masterstudium. \
             Nach einem Jahr in einem festen Klaviertrio entdeckte er seine Leidenschaft für das Cello neu und studiert seit 2024 an der Joseph Haydn Privathochschule \
             in der Klasse von Prof. Othmar Müller.",
-        en: "Valentin Schnabl started playing the cello at the age of four, receiving lessons from Maria Grün and later Andrea Traxler at the Johann Sebastian Bach Music School. \
+        en: "Valentin Schnabl started playing the cello at the age of four, receiving lessons from Maria Grün and later Andrea Traxler at the Johann Sebastian Bach Music School in Vienna. \
             He won multiple prizes at the Prima la Musica competition.\
             Alongside his musical career, he completed a Bachelor's degree in Computer Science and is currently pursuing his Master’s degree. \
             After spending a year in a dedicated piano trio, he rediscovered his passion for the cello and has been studying at the Joseph Haydn Private University \
@@ -90,7 +90,7 @@ const Members: React.FC = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold flex-col mt-35 mb-15">{t("members.title")}</h1>
+        <h1 className="text-5xl font-bold flex-col mt-25 mb-15">{t("members.title")}</h1>
       </div>
       
       <div className="space-y-16">
@@ -111,13 +111,13 @@ const Members: React.FC = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">
                   {member.name}
                 </h2>
-                <h3 className="text-xl text-gray-600 mb-4">
+                <h3 className="text-gray-600 mb-4">
                   {member.role[language]}
                 </h3>
-                <p className="text-xl text-gray-700 text-base">
+                </div>
+                <p className="text-gray-800">
                   {member.bio[language]}
                 </p>
-              </div>
             </div>
             
             {/* Desktop view with alternating layout */}
@@ -128,10 +128,10 @@ const Members: React.FC = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
                     {member.name}
                   </h2>
-                  <h3 className="text-xl text-gray-600 mb-4 font-bold">
+                  <h3 className=" text-gray-600 mb-4 font-bold">
                     {member.role[language]}
                   </h3>
-                  <p className="text-xl ">
+                  <p className="text-gray-800">
                     {member.bio[language]}
                   </p>
                 </div>
@@ -169,10 +169,10 @@ const Members: React.FC = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
                     {member.name}
                   </h2>
-                  <h3 className="text-xl text-gray-600 mb-4 font-bold">
+                  <h3 className="text-gray-600 mb-4 font-bold">
                     {member.role[language]}
                   </h3>
-                  <p className="text-xl">
+                  <p className="text-gray-800">
                     {member.bio[language]}
                   </p>
                 </div>

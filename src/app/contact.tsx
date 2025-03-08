@@ -79,16 +79,16 @@ export default function Contact() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6">
-            <h1 className="text-5xl font-bold flex-col mb-30">{t("contact.title")}</h1>
+            <h1 className="text-5xl font-bold flex-col mt-20 mb-15">{t("contact.title")}</h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full">
-                <p className="text-lg mb-4 flex-1 p-6">
-                    <a href="mailto:edelweissquartett@gmail.com" className="text-xl text-blue-600">edelweissquartett@gmail.com</a>
+                <p className="text-lg flex-1 lg:m-6 md:m-6 md:p-6 lg:p-6">
+                    <a href="mailto:edelweissquartett@gmail.com" className="text-blue-600">edelweissquartett@gmail.com</a>
                 </p>
 
                 <div className="hidden md:flex w-[1px] bg-black h-auto self-stretch"></div>
                 <div className="lg:hidden md:hidden">{t("or")}</div>
 
-                <form onSubmit={handleSubmit} className="p-6 rounded-xl shadow-lg bg-white flex-1 w-full sm:w-3/4 md:w-1/2 lg:w-lg">
+                <form onSubmit={handleSubmit} className="p-6 lg:m-6 md:m-6 rounded-xl shadow-lg bg-white flex-1 w-full  lg:w-lg">
                     <h2 className="text-2xl font-bold text-center mb-6">{t("contact.form.header")}</h2>
                     
                     {/* Success Message */}

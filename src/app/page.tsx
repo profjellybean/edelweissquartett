@@ -36,7 +36,7 @@ function HomeContent() {
   };
 
   // SEO data based on current language
-  const pageTitle = t("home.title");
+  const pageTitle = language === "en" ? "Edelweiss Quartet" : "Edelweiß Quartett";
   const pageDescription = t("quartett.description").slice(0, 160); // Truncate to reasonable meta description length
   const siteUrl = "https://edelweissquartett.at";
   const currentUrl = `${siteUrl}/${language === "en" ? "" : language}`;
@@ -61,6 +61,9 @@ function HomeContent() {
           <link rel="alternate" hrefLang="en" href={`${siteUrl}`} />
           <link rel="alternate" hrefLang="de" href={`${siteUrl}/de`} />
           
+          {/* Additional SEO keywords */}
+          <meta name="keywords" content={language === "en" ? "Edelweiss Quartet, String Quartet, Classical Music" : "Edelweiß Quartett, Streichquartett, Klassische Musik"} />
+          
           {/* Structured Data / JSON-LD for Music Group */}
           <script
             type="application/ld+json"
@@ -80,7 +83,7 @@ function HomeContent() {
         </Head>
         {/* Flower Background - Fixed position, low opacity for subtlety */}
         <div
-            className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-10"
+            className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-15"
             style={{
               backgroundImage: 'url("/edelweiss.jpg")',
             }}
@@ -91,16 +94,23 @@ function HomeContent() {
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
         />
-        {/* Rest of your component code remains unchanged */}
+
         {/* Fixed navigation bar that appears when scrolling */}
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
           <div className="container mx-auto px-4 relative">
             {/* Flex container with three sections */}
             <div className="flex justify-between items-center">
               {/* Left section: Logo/Title */}
               <div className="flex-shrink-0">
-                <a href="#home" className="text-xl font-bold">
-                  {t("home.title")}
+                <a href="#home" className="text-xl" aria-label={pageTitle}>
+                  {/* SVG logo from public folder */}
+                  <img 
+                    src="/logo_edelweiss.svg" 
+                    alt={pageTitle} 
+                    className="h-20 w-auto" 
+                  />
+                  {/* Hidden text for SEO */}
+                  <span className="sr-only">{pageTitle}</span>
                 </a>
               </div>
 
@@ -121,18 +131,18 @@ function HomeContent() {
 
               {/* Right section: Language toggle and Mobile menu button */}
               <div className="flex items-center gap-4">
-                {/* Enlarged Language Toggle */}
+                {/* Language Toggle */}
                 <div className="scale-125">
                   <LanguageToggle />
                 </div>
 
-                {/* Mobile Menu Button */}
+                {/* Simple Mobile Menu Button */}
                 <button
-                    className="md:hidden flex items-center"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Toggle navigation menu"
+                  className="md:hidden flex items-center"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  aria-label="Toggle navigation menu"
                 >
-                  {/* Hamburger Icon */}
+                  {/* Original Hamburger Icon */}
                   <div className="space-y-2">
                     <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
                     <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
@@ -145,16 +155,16 @@ function HomeContent() {
 
           {/* Mobile Navigation Menu - slides down when open */}
           <div
-              className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-60' : 'max-h-0'}`}
+            className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-60' : 'max-h-0'}`}
           >
             <div className="flex flex-col items-center py-4 space-y-4">
-              <a href="#quartett" className="text-lg font-bold hover:text-gray-600" onClick={handleNavClick}>
+              <a href="#quartett" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.quartett")}
               </a>
-              <a href="#members" className="text-lg font-bold hover:text-gray-600" onClick={handleNavClick}>
+              <a href="#members" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.members")}
               </a>
-              <a href="#contact" className="text-lg font-bold hover:text-gray-600" onClick={handleNavClick}>
+              <a href="#contact" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.contact")}
               </a>
             </div>
@@ -164,15 +174,22 @@ function HomeContent() {
         {/* Main content - higher z-index than background */}
         <div className="relative z-10">
           <div className="flex justify-center items-center min-h-screen" id='home'>
-            <div className="text-center">
-              <h1 className="text-7xl font-bold" id='home'>{t("home.title")}</h1>
-            </div>
+          <div className="text-center">
+            {/* Hero section with large SVG logo */}
+            <img 
+              src="/logo_edelweiss.svg" 
+              alt={pageTitle} 
+              className="h-50 w-auto mx-auto" 
+            />
+            {/* Hidden text for SEO */}
+            <h1 className="sr-only">{pageTitle}</h1>
+          </div>
           </div>
 
           <div className='flex justify-center items-center min-h-screen mt-20' id='quartett'>
             <div className="flex flex-col items-center justify-center min-h-screen p-6">
               <h1 className="text-5xl font-bold flex-col mb-12">{t("quartett.title")}</h1>
-              <div className="text-xl flex flex-col md:flex-row items-center justify-center gap-6 lg:w-1/2">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 lg:w-1/2">
                 {t("quartett.description")}
               </div>
             </div>
@@ -184,6 +201,7 @@ function HomeContent() {
 
           <div className='flex justify-center items-center min-h-screen mt-20' id='contact'>
             <Contact />
+            
           </div>
         </div>
       </div>
