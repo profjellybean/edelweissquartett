@@ -90,7 +90,7 @@ const Members: React.FC = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold flex-col mt-25 mb-15">{t("members.title")}</h1>
+        <h1 className="text-5xl font-bold flex-col pt-10 pb-15">{t("members.title")}</h1>
       </div>
       
       <div className="space-y-16">

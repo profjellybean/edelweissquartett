@@ -79,11 +79,28 @@ export default function Contact() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6">
-            <h1 className="text-5xl font-bold flex-col mt-20 mb-15">{t("contact.title")}</h1>
+            <h1 className="text-5xl font-bold flex-col mb-15">{t("contact.title")}</h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full">
-                <p className="text-lg flex-1 lg:m-6 md:m-6 md:p-6 lg:p-6">
-                    <a href="mailto:edelweissquartett@gmail.com" className="text-blue-600">edelweissquartett@gmail.com</a>
-                </p>
+                <div className="text-lg flex-1 lg:m-6 md:m-6 md:p-6 lg:p-6 flex flex-col md:items-start gap-4">
+                    {/* Email with icon */}
+                    <div className="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                        <a href="mailto:edelweissquartett@gmail.com" className="text-blue-600">edelweissquartett@gmail.com</a>
+                    </div>
+                    
+                    {/* Instagram with icon */}
+                    <div className="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                        </svg>
+                        <a href="https://www.instagram.com/edelweissquartett" target="_blank" rel="noopener noreferrer" className="text-blue-600">@edelweissquartett</a>
+                    </div>
+                </div>
 
                 <div className="hidden md:flex w-[1px] bg-black h-auto self-stretch"></div>
                 <div className="lg:hidden md:hidden">{t("or")}</div>

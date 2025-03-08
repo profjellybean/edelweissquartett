@@ -75,7 +75,7 @@ function HomeContent() {
                 "description": pageDescription,
                 "url": currentUrl,
                 "sameAs": [
-                  "https://www.instagram.com/yourquartet"
+                  "https://www.instagram.com/edelweissquartett"
                 ]
               })
             }}
@@ -107,7 +107,7 @@ function HomeContent() {
                   <img 
                     src="/logo_edelweiss.svg" 
                     alt={pageTitle} 
-                    className="h-20 w-auto" 
+                    className="h-15 w-auto" 
                   />
                   {/* Hidden text for SEO */}
                   <span className="sr-only">{pageTitle}</span>
@@ -129,10 +129,10 @@ function HomeContent() {
                 </div>
               </div>
 
-              {/* Right section: Language toggle and Mobile menu button */}
+              {/* Right section: Language toggle (desktop only) and Mobile menu button */}
               <div className="flex items-center gap-4">
-                {/* Language Toggle */}
-                <div className="scale-125">
+                {/* Language Toggle - Only visible on desktop */}
+                <div className="scale-125 hidden md:block">
                   <LanguageToggle />
                 </div>
 
@@ -155,7 +155,7 @@ function HomeContent() {
 
           {/* Mobile Navigation Menu - slides down when open */}
           <div
-            className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-60' : 'max-h-0'}`}
+            className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}
           >
             <div className="flex flex-col items-center py-4 space-y-4">
               <a href="#quartett" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
@@ -167,6 +167,10 @@ function HomeContent() {
               <a href="#contact" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.contact")}
               </a>
+              {/* Language Toggle - Only visible in mobile menu */}
+              <div className="scale-125 py-2">
+                <LanguageToggle />
+              </div>
             </div>
           </div>
         </nav>
@@ -195,11 +199,11 @@ function HomeContent() {
             </div>
           </div>
 
-          <div className='flex justify-center items-center min-h-screen mt-20' id='members'>
+          <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='members'>
             <Members />
           </div>
 
-          <div className='flex justify-center items-center min-h-screen mt-20' id='contact'>
+          <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='contact'>
             <Contact />
             
           </div>
