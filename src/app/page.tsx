@@ -6,6 +6,12 @@ import Members from './members';
 import { LanguageProvider, useLanguage, LanguageToggle } from './languageContext';
 import Head from 'next/head';
 import Image from 'next/image';
+import { Cardo } from 'next/font/google';
+
+const cardo = Cardo({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
 
 // Wrap the main content with language context
 function HomeContent() {
@@ -43,7 +49,7 @@ function HomeContent() {
   const currentUrl = `${siteUrl}/${language === "en" ? "" : language}`;
 
   return (
-      <div className="relative">
+      <div className={`relative ${cardo.className}`}>
         <Head>
           {/* Essential Meta Tags */}
           <title>{pageTitle}</title>

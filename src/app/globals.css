@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
 @import "tailwindcss";
 
 
@@ -10,6 +9,4 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Cardo', serif;
-  font-weight: 500;
 }
