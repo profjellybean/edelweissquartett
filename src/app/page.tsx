@@ -56,7 +56,7 @@ function HomeContent() {
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <link rel="manifest" href="/site.webmanifest" />
-          
+
           {/* Language Alternates for SEO */}
           <link rel="alternate" hrefLang="en" href={`${siteUrl}`} />
           <link rel="alternate" hrefLang="de" href={`${siteUrl}/de`} />
@@ -85,7 +85,7 @@ function HomeContent() {
         <div
             className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-15"
             style={{
-              backgroundImage: 'url("/edelweiss.jpg")',
+              backgroundImage: 'url("/edelweiss.png")',
             }}
             aria-hidden="true"
         ></div>
@@ -183,7 +183,7 @@ function HomeContent() {
             <img 
               src="/logo_edelweiss.svg" 
               alt={pageTitle} 
-              className="h-50 w-auto mx-auto" 
+              className="h-50 w-auto mx-auto pl-5 pr-5" 
             />
             {/* Hidden text for SEO */}
             <h1 className="sr-only">{pageTitle}</h1>
