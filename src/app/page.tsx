@@ -7,6 +7,7 @@ import { LanguageProvider, useLanguage, LanguageToggle } from './languageContext
 import Head from 'next/head';
 import Image from 'next/image';
 import { Cardo } from 'next/font/google';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const cardo = Cardo({
   subsets: ['latin'],
@@ -88,6 +89,8 @@ function HomeContent() {
             }}
           />
         </Head>
+        <meta name="google-site-verification" content="4B4KCmSyunwjseYoHLkKyJzgJVMFrKMYlyMV89jRqh8" />
+        <GoogleTagManager gtmId="G-NQ6JBNL8JY" />
         {/* Flower Background - Fixed position, low opacity for subtlety */}
         <div
           className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-15 pointer-events-none"
