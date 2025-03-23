@@ -65,12 +65,12 @@ function HomeContent() {
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <link rel="manifest" href="/site.webmanifest" />
 
+           {/* Additional SEO keywords */}
+           <meta name="keywords" content={language === "en" ? "Edelweiss Quartet, String Quartet, Classical Music" : "Edelweiß Quartett, Streichquartett, Klassische Musik"} />
+
           {/* Language Alternates for SEO */}
           <link rel="alternate" hrefLang="en" href={`${siteUrl}`} />
           <link rel="alternate" hrefLang="de" href={`${siteUrl}/de`} />
-          
-          {/* Additional SEO keywords */}
-          <meta name="keywords" content={language === "en" ? "Edelweiss Quartet, String Quartet, Classical Music" : "Edelweiß Quartett, Streichquartett, Klassische Musik"} />
           
           {/* Structured Data / JSON-LD for Music Group */}
           <script
