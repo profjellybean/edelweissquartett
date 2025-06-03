@@ -33,7 +33,10 @@ const translations = {
     "contact.form.success": "Vielen Dank für Ihre Nachricht! Wir werden uns so bald wie möglich bei Ihnen melden.",
     "contact.form.error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
     "or": "oder",
-    "nav.gallery": "Galerie"
+    "nav.gallery": "Galerie",
+    "dates.title": "Konzerte",
+    "nav.dates": "Konzerte",
+    "dates.moreInfo": "Mehr Informationen ",
   },
   en: {
     "nav.quartett": "The Quartet",
@@ -53,7 +56,10 @@ const translations = {
     "contact.form.success": "Thank you for your message! We will get back to you as soon as possible.",
     "contact.form.error": "An error occurred while sending your message. Please try again later.",
     "or": "or",
-    "nav.gallery": "Gallery"
+    "nav.gallery": "Gallery",
+    "dates.title": "Concerts",
+    "nav.dates": "Concerts",
+    "dates.moreInfo": "More Info ",
   }
 };
 

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Contact from './contact';
 import Members from './members';
+import Dates from './dates';
 import { LanguageProvider, useLanguage, LanguageToggle } from './languageContext';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -157,6 +158,9 @@ function HomeContent() {
                   <a href="#gallery" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
                     <span>{t("nav.gallery")}</span>
                   </a>
+                  <a href="#dates" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
+                    <span>{t("nav.dates")}</span>
+                  </a>
                   <a href="#contact" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
                     <span>{t("nav.contact")}</span>
                   </a>
@@ -200,6 +204,9 @@ function HomeContent() {
               </a>
               <a href="#gallery" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.gallery")}
+              </a>
+              <a href="#dates" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
+                {t("nav.dates")}
               </a>
               <a href="#contact" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.contact")}
@@ -297,6 +304,12 @@ function HomeContent() {
               </div>
             </div>
           </div>
+
+          <div className='flex justify-center items-start py-20 mt-20 relative z-10 pt-24' id='dates'>
+            <Dates />
+          </div>
+
+
           <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='contact'>
             <Contact />
             
