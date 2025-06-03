@@ -9,10 +9,26 @@ import Image from 'next/image';
 import { Cardo } from 'next/font/google';
 import { GoogleTagManager } from '@next/third-parties/google'
 
+// Swiper imports
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'; // Added EffectFade as an option
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade'; // Optional: if you want a fade effect
+
 const cardo = Cardo({
   subsets: ['latin'],
   weight: ['400', '700'],
 });
+
+const galleryImages = [
+  { src: "/image2.jpg", alt: "Gallery image 2 of Edelweiss Quartett" },
+  { src: "/group.jpg", alt: "Gallery image 1 of Edelweiss Quartett" },
+  { src: "/image3.jpg", alt: "Gallery image 3 of Edelweiss Quartett" },
+  { src: "/image4.jpg", alt: "Gallery image 4 of Edelweiss Quartett" },
+  { src: "/image5.jpg", alt: "Gallery image 5 of Edelweiss Quartett" },
+];
 
 // Wrap the main content with language context
 function HomeContent() {
@@ -138,6 +154,9 @@ function HomeContent() {
                   <a href="#members" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
                     <span>{t("nav.members")}</span>
                   </a>
+                  <a href="#gallery" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
+                    <span>{t("nav.gallery")}</span>
+                  </a>
                   <a href="#contact" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
                     <span>{t("nav.contact")}</span>
                   </a>
@@ -179,6 +198,9 @@ function HomeContent() {
               <a href="#members" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.members")}
               </a>
+              <a href="#gallery" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
+                {t("nav.gallery")}
+              </a>
               <a href="#contact" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
                 {t("nav.contact")}
               </a>
@@ -204,18 +226,77 @@ function HomeContent() {
           </div>
 
           <div className='flex justify-center items-center min-h-screen mt-20' id='quartett'>
-            <div className="flex flex-col items-center justify-center min-h-screen p-6">
-              <h1 className="text-5xl font-bold flex-col mb-12">{t("quartett.title")}</h1>
-              <div className="flex flex-col md:flex-row items-center justify-center gap-6 lg:w-1/2" style={{ whiteSpace: 'pre-line' }}>
-                {t("quartett.description")}
+            <div className="flex flex-col items-center p-6 w-full"> 
+              <h1 className="text-5xl font-bold mb-12 text-center">
+                {t("quartett.title")}
+              </h1>
+              
+              {/* New container for responsive Image and Description layout */}
+              <div className="flex flex-col md:flex-row items-center md:items-center gap-8 w-full max-w-screen-lg">
+
+               
+                
+                {/* Image Column */}
+                <div className="w-full sm:w-3/4 md:w-2/5 flex-shrink-0">
+                  <Image 
+                    src="/group.jpg" 
+                    alt="Edelweiss Quartett group photo" 
+                    width={600} 
+                    height={600}
+                    layout="responsive"
+                    className="rounded-lg shadow-lg object-cover"
+                  />
+                </div>
+                 {/* Description Column */}
+                <div className="w-full md:w-3/5 text-center md:text-left" style={{ whiteSpace: 'pre-line' }}> 
+                  {t("quartett.description")}
+                </div>
               </div>
             </div>
           </div>
-
           <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='members'>
             <Members />
           </div>
 
+          <div className='flex justify-center items-center py-20 mt-20 relative z-10 pt-24' id='gallery'>
+            <div className="flex flex-col items-center p-6 w-full">
+              <h1 className="text-5xl font-bold mb-16 text-center">
+                {t("nav.gallery")}
+              </h1>
+              
+              <div className="w-full max-w-screen-lg">
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                  spaceBetween={30}
+                  slidesPerView={1}
+                  navigation
+                  pagination={{ clickable: true }}
+                  loop={true}
+                  autoplay={{
+                    delay: 3500,
+                    disableOnInteraction: false,
+                  }}
+                   effect="fade"
+                   fadeEffect={{ crossFade: true }}
+                  className="rounded-lg shadow-xl overflow-hidden"
+                >
+                  {galleryImages.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="aspect-video w-full relative">
+                        <Image 
+                          src={image.src}
+                          alt={image.alt}
+                          layout="fill"
+                          objectFit="contain" 
+                          priority={index < 2}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </div>
+          </div>
           <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='contact'>
             <Contact />
             

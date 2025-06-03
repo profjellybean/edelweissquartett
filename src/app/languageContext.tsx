@@ -32,7 +32,8 @@ const translations = {
     "contact.form.sending" : "Senden...",
     "contact.form.success": "Vielen Dank für Ihre Nachricht! Wir werden uns so bald wie möglich bei Ihnen melden.",
     "contact.form.error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
-    "or": "oder"
+    "or": "oder",
+    "nav.gallery": "Galerie"
   },
   en: {
     "nav.quartett": "The Quartet",
@@ -51,7 +52,8 @@ const translations = {
     "contact.form.sending" : "Sending...",
     "contact.form.success": "Thank you for your message! We will get back to you as soon as possible.",
     "contact.form.error": "An error occurred while sending your message. Please try again later.",
-    "or": "or"
+    "or": "or",
+    "nav.gallery": "Gallery"
   }
 };
 
