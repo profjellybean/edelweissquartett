@@ -62,7 +62,7 @@ const Dates: React.FC = () => {
                   href={concert.ticketLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 mt-4 text-center"
+                  className="inline-block button text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 mt-4 text-center"
                 >
                   {t("dates.moreInfo")} &rarr;
                 </a>

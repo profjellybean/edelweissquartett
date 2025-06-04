@@ -14,3 +14,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.swiper {
+  --swiper-navigation-color: #171717; /* Replace #333333 with your desired color */
+}
+
+.button {
+  background-color: #171717
+}

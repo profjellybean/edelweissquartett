@@ -173,7 +173,7 @@ export default function Contact() {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className={`w-full py-3 rounded-lg transition-all duration-300 ${
+                        className={`w-full py-3 rounded-lg transition-all duration-300 button ${
                             isSubmitting 
                                 ? 'bg-blue-400 cursor-not-allowed' 
                                 : 'bg-blue-600 hover:bg-blue-700'

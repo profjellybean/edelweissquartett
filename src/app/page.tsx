@@ -4,32 +4,22 @@ import React, { useState, useEffect } from 'react';
 import Contact from './contact';
 import Members from './members';
 import Dates from './dates';
+import Gallery from './gallery';
 import { LanguageProvider, useLanguage, LanguageToggle } from './languageContext';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Cardo } from 'next/font/google';
 import { GoogleTagManager } from '@next/third-parties/google'
 
-// Swiper imports
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'; // Added EffectFade as an option
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/effect-fade'; // Optional: if you want a fade effect
+import 'swiper/css/effect-fade';
 
 const cardo = Cardo({
   subsets: ['latin'],
   weight: ['400', '700'],
 });
-
-const galleryImages = [
-  { src: "/image2.jpg", alt: "Gallery image 2 of Edelweiss Quartett" },
-  { src: "/group.jpg", alt: "Gallery image 1 of Edelweiss Quartett" },
-  { src: "/image3.jpg", alt: "Gallery image 3 of Edelweiss Quartett" },
-  { src: "/image4.jpg", alt: "Gallery image 4 of Edelweiss Quartett" },
-  { src: "/image5.jpg", alt: "Gallery image 5 of Edelweiss Quartett" },
-];
 
 // Wrap the main content with language context
 function HomeContent() {
@@ -67,263 +57,227 @@ function HomeContent() {
   const currentUrl = `${siteUrl}/${language === "en" ? "" : language}`;
 
   return (
-      <div className={`relative ${cardo.className}`}>
-        <Head>
-          {/* Essential Meta Tags */}
-          <title>{pageTitle}</title>
-          <meta name="description" content={pageDescription} />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="canonical" href={currentUrl} />
-          
-          {/* Favicon */}
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="manifest" href="/site.webmanifest" />
+    <div className={`relative ${cardo.className}`}>
+      <Head>
+        {/* Essential Meta Tags */}
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href={currentUrl} />
 
-           {/* Additional SEO keywords */}
-           <meta name="keywords" content={language === "en" ? "Edelweiss Quartet, String Quartet, Classical Music" : "Edelweiß Quartett, Streichquartett, Klassische Musik"} />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
 
-          {/* Language Alternates for SEO */}
-          <link rel="alternate" hrefLang="en" href={`${siteUrl}`} />
-          <link rel="alternate" hrefLang="de" href={`${siteUrl}/de`} />
-          
-          {/* Structured Data / JSON-LD for Music Group */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "MusicGroup",
-                "name": pageTitle,
-                "description": pageDescription,
-                "url": currentUrl,
-                "sameAs": [
-                  "https://www.instagram.com/edelweissquartett"
-                ]
-              })
-            }}
-          />
-        </Head>
-        <meta name="google-site-verification" content="4B4KCmSyunwjseYoHLkKyJzgJVMFrKMYlyMV89jRqh8" />
-        <GoogleTagManager gtmId="G-NQ6JBNL8JY" />
-        {/* Flower Background - Fixed position, low opacity for subtlety */}
-        <div
-          className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-15 pointer-events-none"
-          style={{
-            backgroundImage: 'url("/edelweiss.png")',
-            backgroundAttachment: 'fixed',
-            transform: 'translateZ(0)', // Force hardware acceleration
-            willChange: 'transform', // Hint to browser about animation
+        {/* Additional SEO keywords */}
+        <meta name="keywords" content={language === "en" ? "Edelweiss Quartet, String Quartet, Classical Music" : "Edelweiß Quartett, Streichquartett, Klassische Musik"} />
+
+        {/* Language Alternates for SEO */}
+        <link rel="alternate" hrefLang="en" href={`${siteUrl}`} />
+        <link rel="alternate" hrefLang="de" href={`${siteUrl}/de`} />
+
+        {/* Structured Data / JSON-LD for Music Group */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MusicGroup",
+              "name": pageTitle,
+              "description": pageDescription,
+              "url": currentUrl,
+              "sameAs": [
+                "https://www.instagram.com/edelweissquartett"
+              ]
+            })
           }}
-          aria-hidden="true"
+        />
+      </Head>
+      <meta name="google-site-verification" content="4B4KCmSyunwjseYoHLkKyJzgJVMFrKMYlyMV89jRqh8" />
+      <GoogleTagManager gtmId="G-NQ6JBNL8JY" />
+      {/* Flower Background - Fixed position, low opacity for subtlety */}
+      <div
+        className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'url("/edelweiss.png")',
+          backgroundAttachment: 'fixed',
+          transform: 'translateZ(0)', // Force hardware acceleration
+          willChange: 'transform', // Hint to browser about animation
+        }}
+        aria-hidden="true"
       ></div>
 
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
-        />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+      />
 
-        {/* Fixed navigation bar that appears when scrolling */}
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
-          <div className="container mx-auto px-4 relative">
-            {/* Flex container with three sections */}
-            <div className="flex justify-between items-center">
-              {/* Left section: Logo/Title */}
-              <div className="flex-shrink-0">
-                <a href="#home" className="text-xl" aria-label={pageTitle}>
-                  {/* SVG logo from public folder */}
-                  <Image 
-                    src="/logo_edelweiss.svg" 
-                    alt={pageTitle} 
-                    className="h-12 w-auto" 
-                    height={2150}
-                    width={5483}
-                  />  
-                  {/* Hidden text for SEO */}
-                  <span className="sr-only">{pageTitle}</span>
+      {/* Fixed navigation bar that appears when scrolling */}
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
+        <div className="container mx-auto px-4 relative">
+          {/* Flex container with three sections */}
+          <div className="flex justify-between items-center">
+            {/* Left section: Logo/Title */}
+            <div className="flex-shrink-0">
+              <a href="#home" className="text-xl" aria-label={pageTitle}>
+                {/* SVG logo from public folder */}
+                <Image
+                  src="/logo_edelweiss.svg"
+                  alt={pageTitle}
+                  className="h-12 w-auto"
+                  height={2150}
+                  width={5483}
+                />
+                {/* Hidden text for SEO */}
+                <span className="sr-only">{pageTitle}</span>
+              </a>
+            </div>
+
+            {/* Center section: Desktop Navigation - absolutely positioned */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
+              <div className="flex items-center justify-center gap-12">
+                <a href="#quartett" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
+                  <span>{t("nav.quartett")}</span>
+                </a>
+                <a href="#members" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
+                  <span>{t("nav.members")}</span>
+                </a>
+                <a href="#gallery" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
+                  <span>{t("nav.gallery")}</span>
+                </a>
+                <a href="#dates" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
+                  <span>{t("nav.dates")}</span>
+                </a>
+                <a href="#contact" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
+                  <span>{t("nav.contact")}</span>
                 </a>
               </div>
+            </div>
 
-              {/* Center section: Desktop Navigation - absolutely positioned */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
-                <div className="flex items-center justify-center gap-12">
-                  <a href="#quartett" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
-                    <span>{t("nav.quartett")}</span>
-                  </a>
-                  <a href="#members" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
-                    <span>{t("nav.members")}</span>
-                  </a>
-                  <a href="#gallery" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
-                    <span>{t("nav.gallery")}</span>
-                  </a>
-                  <a href="#dates" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
-                    <span>{t("nav.dates")}</span>
-                  </a>
-                  <a href="#contact" className="flex items-center flex-col text-xl font-bold hover:text-gray-600">
-                    <span>{t("nav.contact")}</span>
-                  </a>
-                </div>
+            {/* Right section: Language toggle and Mobile menu button */}
+            <div className="flex items-center gap-4">
+              {/* Language Toggle - Always visible, now with rounded style */}
+              <div className="scale-110 rounded-sm overflow-hidden border border-gray-200 shadow-sm">
+                <LanguageToggle />
               </div>
 
-              {/* Right section: Language toggle and Mobile menu button */}
-              <div className="flex items-center gap-4">
-                {/* Language Toggle - Always visible, now with rounded style */}
-                <div className="scale-110 rounded-sm overflow-hidden border border-gray-200 shadow-sm">
-                  <LanguageToggle />
+              {/* Simple Mobile Menu Button */}
+              <button
+                className="md:hidden flex items-center"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle navigation menu"
+              >
+                {/* Original Hamburger Icon */}
+                <div className="space-y-2">
+                  <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
+                  <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                  <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></span>
                 </div>
-
-                {/* Simple Mobile Menu Button */}
-                <button
-                  className="md:hidden flex items-center"
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  aria-label="Toggle navigation menu"
-                >
-                  {/* Original Hamburger Icon */}
-                  <div className="space-y-2">
-                    <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
-                    <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                    <span className={`block w-8 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></span>
-                  </div>
-                </button>
-              </div>
+              </button>
             </div>
           </div>
+        </div>
 
-          {/* Mobile Navigation Menu - slides down when open */}
-          <div
-            className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}
-          >
-            <div className="flex flex-col items-center py-4 space-y-4">
-              <a href="#quartett" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
-                {t("nav.quartett")}
-              </a>
-              <a href="#members" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
-                {t("nav.members")}
-              </a>
-              <a href="#gallery" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
-                {t("nav.gallery")}
-              </a>
-              <a href="#dates" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
-                {t("nav.dates")}
-              </a>
-              <a href="#contact" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
-                {t("nav.contact")}
-              </a>
-            </div>
+        {/* Mobile Navigation Menu - slides down when open */}
+        <div
+          className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}
+        >
+          <div className="flex flex-col items-center py-4 space-y-4">
+            <a href="#quartett" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
+              {t("nav.quartett")}
+            </a>
+            <a href="#members" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
+              {t("nav.members")}
+            </a>
+            <a href="#gallery" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
+              {t("nav.gallery")}
+            </a>
+            <a href="#dates" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
+              {t("nav.dates")}
+            </a>
+            <a href="#contact" className="text-lg font-bold hover:text-gray-600 py-2" onClick={handleNavClick}>
+              {t("nav.contact")}
+            </a>
           </div>
-        </nav>
+        </div>
+      </nav>
 
-        {/* Main content - higher z-index than background */}
-        <div className="relative z-10">
-          <div className="flex justify-center items-center min-h-screen" id='home'>
+      {/* Main content - higher z-index than background */}
+      <div className="relative z-10">
+        <div className="flex justify-center items-center min-h-screen" id='home'>
           <div className="text-center">
             {/* Hero section with large SVG logo */}
-            <Image 
-              src="/logo_edelweiss.svg" 
-              alt={pageTitle} 
-              className="h-50 w-auto mx-auto pl-5 pr-5" 
+            <Image
+              src="/logo_edelweiss.svg"
+              alt={pageTitle}
+              className="h-50 w-auto mx-auto pl-5 pr-5"
               height={2150}
               width={5483}
             />
             {/* Hidden text for SEO */}
             <h1 className="sr-only">{pageTitle}</h1>
           </div>
-          </div>
+        </div>
 
-          <div className='flex justify-center items-center min-h-screen mt-20' id='quartett'>
-            <div className="flex flex-col items-center p-6 w-full"> 
-              <h1 className="text-5xl font-bold mb-12 text-center">
-                {t("quartett.title")}
-              </h1>
-              
-              {/* New container for responsive Image and Description layout */}
-              <div className="flex flex-col md:flex-row items-center md:items-center gap-8 w-full max-w-screen-lg">
+        <div className='flex justify-center items-center min-h-screen mt-20' id='quartett'>
+          <div className="flex flex-col items-center p-6 w-full">
+            <h1 className="text-5xl font-bold mb-12 text-center">
+              {t("quartett.title")}
+            </h1>
 
-               
-                
-                {/* Image Column */}
-                <div className="w-full sm:w-3/4 md:w-2/5 flex-shrink-0">
-                  <Image 
-                    src="/group.jpg" 
-                    alt="Edelweiss Quartett group photo" 
-                    width={600} 
-                    height={600}
-                    layout="responsive"
-                    className="rounded-lg shadow-lg object-cover"
-                  />
-                </div>
-                 {/* Description Column */}
-                <div className="w-full md:w-3/5 text-center md:text-left" style={{ whiteSpace: 'pre-line' }}> 
-                  {t("quartett.description")}
-                </div>
+            {/* New container for responsive Image and Description layout */}
+            <div className="flex flex-col md:flex-row items-center md:items-center gap-8 w-full max-w-screen-lg">
+
+
+
+              {/* Image Column */}
+              <div className="w-full sm:w-3/4 md:w-2/5 flex-shrink-0">
+                <Image
+                  src="/group.jpg"
+                  alt="Edelweiss Quartett group photo"
+                  width={600}
+                  height={600}
+                  layout="responsive"
+                  className="rounded-lg shadow-lg object-cover"
+                />
+              </div>
+              {/* Description Column */}
+              <div className="w-full md:w-3/5 text-center md:text-left" style={{ whiteSpace: 'pre-line' }}>
+                {t("quartett.description")}
               </div>
             </div>
-          </div>
-          <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='members'>
-            <Members />
-          </div>
-
-          <div className='flex justify-center items-center py-20 mt-20 relative z-10 pt-24' id='gallery'>
-            <div className="flex flex-col items-center p-6 w-full">
-              <h1 className="text-5xl font-bold mb-16 text-center">
-                {t("nav.gallery")}
-              </h1>
-              
-              <div className="w-full max-w-screen-lg">
-                <Swiper
-                  modules={[Navigation, Pagination, Autoplay, EffectFade]}
-                  spaceBetween={30}
-                  slidesPerView={1}
-                  navigation
-                  pagination={{ clickable: true }}
-                  loop={true}
-                  autoplay={{
-                    delay: 3500,
-                    disableOnInteraction: false,
-                  }}
-                   effect="fade"
-                   fadeEffect={{ crossFade: true }}
-                  className="rounded-lg shadow-xl overflow-hidden"
-                >
-                  {galleryImages.map((image, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="aspect-video w-full relative">
-                        <Image 
-                          src={image.src}
-                          alt={image.alt}
-                          layout="fill"
-                          objectFit="contain" 
-                          priority={index < 2}
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-
-          <div className='flex justify-center items-start py-20 mt-20 relative z-10 pt-24' id='dates'>
-            <Dates />
-          </div>
-
-
-          <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='contact'>
-            <Contact />
-            
           </div>
         </div>
+        <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='members'>
+          <Members />
+        </div>
+
+        <div className='flex justify-center items-center py-20 mt-20 relative z-10 pt-24' id='gallery'>
+          <Gallery />
+        </div>
+
+        <div className='flex justify-center items-start py-20 mt-20 relative z-10 pt-24' id='dates'>
+          <Dates />
+        </div>
+
+
+        <div className='flex justify-center items-center min-h-screen mt-20 relative z-10 pt-24' id='contact'>
+          <Contact />
+
+        </div>
       </div>
+    </div>
   );
 }
 
 // Main component that provides the language context
 export default function Home() {
   return (
-      <LanguageProvider>
-        <HomeContent />
-      </LanguageProvider>
+    <LanguageProvider>
+      <HomeContent />
+    </LanguageProvider>
   );
 }

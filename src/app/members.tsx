@@ -74,12 +74,12 @@ const Members: React.FC = () => {
       bio: {
         de: "Valentin Schnabl begann im Alter von vier Jahren mit dem Cellospiel und erhielt Unterricht bei Maria Grün und später bei Andrea Traxler an der Johann-Sebastian-Bach-Musikschule in Wien. \
             Er gewann mehrfach Preise beim Prima la Musica-Wettbewerb. \
-            Neben seiner musikalischen Laufbahn absolvierte er einen Bachelor in Informatik und verfolgt derzeit sein Masterstudium. \
+            Neben seiner musikalischen Laufbahn absolvierte er einen Bachelor in Informatik, arbeitet als Softwareentwickler und verfolgt derzeit sein Masterstudium an der Technischen Universität Wien.\
             Nach einem Jahr in einem festen Klaviertrio entdeckte er seine Leidenschaft für das Cello neu und studiert seit 2024 an der Joseph Haydn Privathochschule \
             in der Klasse von Prof. Othmar Müller.",
         en: "Valentin Schnabl started playing the cello at the age of four, receiving lessons from Maria Grün and later Andrea Traxler at the Johann Sebastian Bach Music School in Vienna. \
             He won multiple prizes at the Prima la Musica competition.\
-            Alongside his musical career, he completed a Bachelor's degree in Computer Science and is currently pursuing his Master’s degree. \
+            Alongside his musical career, he completed a Bachelor's degree in Computer Science and is currently pursuing a Master’s degree in Computer Science at the Technical University of Vienna, while working as a software engineer. \
             After spending a year in a dedicated piano trio, he rediscovered his passion for the cello and has been studying at the Joseph Haydn Private University \
       since 2024 in the class of Prof. Othmar Müller.",
       },
